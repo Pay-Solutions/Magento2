@@ -56,7 +56,6 @@ class SendMailOnOrderSuccess implements ObserverInterface
         if(count($orderIds))
         {
             $this->checkoutSession->setForceOrderMailSentOnSuccess(true);
-            //$this->orderModel->setCanSendNewEmailFlag(true);
             $order = $this->orderModel->create()->load($orderIds[0]);
             $this->orderSender->send($order, true);
         }
